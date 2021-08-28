@@ -6,5 +6,5 @@ from django.http import HttpResponseRedirect
 def home(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
-    return HttpResponse("this is index")
-    # return render(request,'hospital/index.html')
+    # return HttpResponse("this is index")
+    return render(request,'base.html')

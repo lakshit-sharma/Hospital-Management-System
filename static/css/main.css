@@ -1,0 +1,64 @@
+:root{
+    --main-bg-color: #A020F0;
+}
+.bs-example {
+    margin: 0px;
+}
+/* NAVIGATION BAR START */
+.navbar{
+    background:var(--main-bg-color);
+}
+.navbar-brand {
+    font-size: 1.5em;
+    font-family: sans-serif;
+}
+/* NAVIGATION BAR END */
+
+/* FOOTER START */
+footer {
+    padding: 0 0 0 0;
+    background-color:var(--main-bg-color);
+    margin: 0;
+}
+
+.fa {
+    padding: 1.25em;
+    font-size: 1.4em;
+    width: 3.75em;
+    text-align: center;
+    text-decoration: none;
+    margin: .3em .1em;
+    border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+.fa-facebook {
+background: #3B5998;
+color: #ffffff;
+margin-top: 1.8em;
+}
+
+.fa-whatsapp {
+background: #25d366;
+color: #ffffff;
+}
+
+.fa-twitter {
+background: #55ACEE;
+color: #ffffff;
+}
+
+.fa-instagram {
+background: #125688;
+color: #ffffff;
+}
+
+p {
+text-align: center;
+
+}
+/* FOOTER END */
