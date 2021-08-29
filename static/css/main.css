@@ -14,6 +14,38 @@
 }
 /* NAVIGATION BAR END */
 
+/* HOMEPAGE START */
+.jumbotron {
+    margin-top: 0;
+    margin-bottom: 0;
+    background-image: url();
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.jumbotron h5,h3 {
+    text-align: center;
+}
+.alert {
+    margin: 0;
+}
+.glow {
+    font-size: 3.1em;
+    color: #ffffff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 .6em #eeeeee, 0 0 1.25em #000000, 0 0 1.8em #000000, 0 0 2.5em #000000, 0 0 3.1em #9554b3, 0 0 3.7em #9554b3, 0 0 4.3em #9554b3;
+    }
+    to {
+        text-shadow: 0 0 1.25em #eeeeee, 0 0 1.8em #ff4da6, 0 0 2.5em #ff4da6, 0 0 3.1em #ff4da6, 0 0 3.7em #ff4da6, 0 0 4.3em #ff4da6, 0 0 4.9em #ff4da6;
+    }
+}
+/* HOMEPAGE END */
 /* FOOTER START */
 footer {
     padding: 0 0 0 0;
