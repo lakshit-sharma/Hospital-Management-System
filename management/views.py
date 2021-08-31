@@ -16,7 +16,7 @@ def home(request):
 #------------------------ ABOUT US AND CONTACT US VIEWS START ------------------------------
 #---------------------------------------------------------------------------------
 def about_us(request):
-    return render(request,'hospital/aboutus.html')
+    return render(request,'about_us.html')
 
 def contact_us(request):
     sub = forms.ContactusForm()
@@ -35,3 +35,9 @@ def contact_us(request):
 #------------------------ ABOUT US AND CONTACT US END ------------------------------
 #---------------------------------------------------------------------------------
 
+# ADMIN LOGIN
+def admin_login(request):
+    return render(request, 'admin_login.html')
+
+def admin_signup(request):
+    return render(request, 'admin_signup.html')
