@@ -4,7 +4,7 @@ from . import models
 
 
 #for admin signup
-class AdminSigupForm(forms.ModelForm):
+class AdminSignupForm(forms.ModelForm):
     class Meta:
         model=User
         fields=['first_name','last_name','username','password']

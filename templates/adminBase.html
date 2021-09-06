@@ -3,22 +3,20 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Admin PAGE </title>
+    <meta charset="UTF-8">
+    {% block title %}{% endblock %}
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/main.css">
 
  
 </head>
-
 <body>
-
   <!-- partial:index.partial.html -->
     <nav class="menu" tabindex="0">
         <div class="smartphone-menu-trigger"></div>
@@ -30,20 +28,38 @@
         </header>
         <ul>
             <li tabindex="0" class="icon-dashboard"> 
-                <a href="/admin-dashboard">
+                <a href="/adminDashboard">
                     <span>Dashboard</span>
                 </a> 
             </li>
-            <li tabindex="0" class="icon-customers"> <a href="/admin-doctor"><span>Doctor</span></a></li>
-            <li tabindex="0" class="icon-users"> <a href="/admin-patient"><span>Patient</span></a></li>
-            <li tabindex="0" class="icon-calendar"> <a href="/admin-appointment"><span>Appointment</span></a></li>
+            <li tabindex="0" class="icon-customers"> 
+                <a href="/adminDoctor">
+                    <span>
+                        Doctor
+                    </span>
+                </a>
+            </li>
+            <li tabindex="0" class="icon-users"> 
+                <a href="/adminPatient">
+                    <span>
+                        Patient
+                    </span>
+                </a>
+            </li>
+            <li tabindex="0" class="icon-calendar"> 
+                <a href="/adminAppointment">
+                    <span>
+                        Appointment
+                    </span>
+                </a>
+            </li>
         </ul>
     </nav>
     <main>
     <!-- NAVIGATION BAR START -->
         <div class="bs-example">
             <nav class="navbar navbar-expand-md  navbar-dark fixed-top">
-                <a href="/admin-dashboard" class="navbar-brand">HOSPITAL MANAGEMENT</a>
+                <a href="/adminDashboard" class="navbar-brand">HOSPITAL MANAGEMENT</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -56,7 +72,7 @@
         </div>
     <!-- NAVIGATION BAR END -->
 
-    <!-- iNHERITANCE START-->
+    <!-- INHERITANCE START-->
         {% block content %}
 
         {% endblock content %}
