@@ -91,7 +91,7 @@ def doctorSignUp(request):
             doctor=doctor.save()
             my_doctor_group = Group.objects.get_or_create(name='DOCTOR')
             my_doctor_group[0].user_set.add(user)
-        return HttpResponseRedirect('doctorlogin')
+        return HttpResponseRedirect('doctorLogIn')
     return render(request,'doctorSignUp.html',context=mydict)
 
 
@@ -135,7 +135,7 @@ def checkLogIn(request):
         if accountApproval:
             return redirect('doctorDashboard')
         else:
-            return render(request,'doctor_wait_for_approval.html')
+            return render(request,'doctorPendingApproval.html')
     elif isPatient(request.user):
         accountApproval=models.Patient.objects.all().filter(user_id=request.user.id,status=True)
         if accountApproval:
@@ -279,7 +279,7 @@ def reject_doctor_view(request,pk):
     user=models.User.objects.get(id=doctor.user_id)
     user.delete()
     doctor.delete()
-    return redirect('admin-approve-doctor')
+    return redirect('adminApproveDoctor')
 
 
 
@@ -403,4 +403,26 @@ def reject_patient_view(request,pk):
 
 
 
+#--------------------- FOR DISCHARGING PATIENT BY ADMIN START-------------------------
+@login_required(login_url='adminLogin')
+@user_passes_test(isAdmin)
+def adminDischargePatientView(request):
+    patients=models.Patient.objects.all().filter(status=True)
+    return render(request,'adminDischargePatient.html',{'patients':patients})
+
+
+
+#------------------------ PATIENT RELATED VIEWS END ------------------------------
+#---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+#---------------------------------------------------------------------------------
+#------------------------ ADMIN RELATED VIEWS END ------------------------------
+#---------------------------------------------------------------------------------
 

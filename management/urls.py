@@ -37,12 +37,12 @@ urlpatterns = [
 
     path('adminDoctor', views.adminDoctorView,name='adminDoctor'),
     path('adminViewDoctor', views.adminViewDoctorView,name='adminViewDoctor'),
-    path('deleteDoctorFromHospital/<int:pk>', views.deleteDoctorFromHospitalView,name='delete-doctor-from-hospital'),
+    path('deleteDoctorFromHospital/<int:pk>', views.deleteDoctorFromHospitalView,name='deleteDoctorFromHospital'),
     path('updateDoctor/<int:pk>', views.updateDoctorView,name='updateDoctor'),
     path('adminAddDoctor', views.adminAddDoctorView,name='adminAddDoctor'),
     path('adminApproveDoctor', views.admin_approve_doctor_view,name='adminApproveDoctor'),
     path('approveDoctor/<int:pk>', views.approve_doctor_view,name='approveDoctor'),
-    path('rejectDoctor/<int:pk>', views.reject_doctor_view,name='rejecDoctor'),
+    path('rejectDoctor/<int:pk>', views.reject_doctor_view,name='rejectDoctor'),
     path('adminViewDoctorSpecialisation',views.adminViewDoctorSpecialisationView,name='adminViewDoctorSpecialisation'),
 
 
@@ -84,18 +84,4 @@ urlpatterns +=[
 ]
 
 
-
-
-#---------FOR PATIENT RELATED URLS-------------------------------------
-urlpatterns +=[
-
-    path('patient-dashboard', views.patient_dashboard_view,name='patient-dashboard'),
-    path('patient-appointment', views.patient_appointment_view,name='patient-appointment'),
-    path('patient-book-appointment', views.patient_book_appointment_view,name='patient-book-appointment'),
-    path('patient-view-appointment', views.patient_view_appointment_view,name='patient-view-appointment'),
-    path('patient-view-doctor', views.patient_view_doctor_view,name='patient-view-doctor'),
-    path('searchdoctor', views.search_doctor_view,name='searchdoctor'),
-    path('patient-discharge', views.patient_discharge_view,name='patient-discharge'),
-
-]
 
