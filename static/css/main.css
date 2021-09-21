@@ -2,10 +2,11 @@
     --main-bg-color: #A020F0;
 }
 body{
-    padding: 15em;
-    color: #aa082e;
-    background-color: #b6bde7;
-    font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0; 
+  color: #aa082e;
+  background-color: #b6bde7;
+  font-family: 'Roboto', sans-serif;
 }
 main{
     position: relative;
@@ -17,6 +18,7 @@ main{
 /* NAVIGATION BAR START */
 .navbar{
     background:var(--main-bg-color);
+    position: fixed;
 }
 .navbar-brand {
     font-size: 1.5em;
@@ -83,7 +85,8 @@ a:hover {
 }
 .menu .avatar {
   background: #fe994a;
-  padding: 2em 0.5em;
+  position: relative;
+  padding: 8em 0.5em;
   text-align: center;
 }
 .menu .avatar img {
@@ -275,11 +278,17 @@ a:hover {
   padding: 0;
 }
 /* ADMIN DASHBOARD CARDS END */
+pATIENTS APPONTMENT START
+
 /* FOOTER START */
 footer {
     padding: 0 0 0 0;
     background-color:var(--main-bg-color);
     margin: 0;
+}
+#ftr {
+
+  padding: 20px;
 }
 
 .fa {
@@ -321,6 +330,7 @@ color: #ffffff;
 p {
 text-align: center;
 
+
 }
 /* FOOTER END */
 
@@ -329,7 +339,7 @@ text-align: center;
 
 @media screen and (max-width: 900px) and (min-width: 400px) {
     body {
-      padding-left: 5.6em;
+      padding-left: 0;
       
     }
     .menu {

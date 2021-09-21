@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  {% block title %}<title></title> {% endblock %}
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="362.905sheet" id="bootstrap-css">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="../static/css/main.css">
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="{% static patient.profile_pic.url %}" alt="Profile Pic" />
+      <br><br>
+      <h6>Patient</h6>
+      <h2>{{request.user.first_name}}</h2>
+    </header>
+    <ul>
+      <li tabindex="0" class="icon-dashboard"> <a href="/patientDashboard"><span>Dashboard</span></a> </li>
+      <li tabindex="0" class="icon-calendar"> <a href="/patientAppointment"><span>Appointments</span></a></li>
+      <li tabindex="0" class="icon-users"> <a href="/patientViewDoctor"><span>Doctors</span></a></li>
+      
+      <li tabindex="0" class="icon-users"> <a href="/patientDischarge"><span>Discharge</span></a></li>
+    </ul>
+  </nav>
+  <main>
+    <!-- NAVIGATTION BAR START -->
+    <div class="bs-example">
+      <nav class="navbar navbar-expand-md  navbar-dark fixed-top">
+        <a href="/patientDashboard" class="navbar-brand">HOSPITAL MANAGEMENT</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <div class="navbar-nav" >
+
+            <a href="/logout" class="nav-item nav-link">Logout</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- NAVIGATTION BAR END -->
+    <br><br>
+    <!-- INHERITANCE TEMPLATE START-->
+    {% block content %}
+    {% endblock content %}
+    <!-- INHERITANCE TEMPLATE END-->
+    <br><br><br><br><br><br><br>
+    <footer>
+      <p>
+        <a id="ftr" href="https://facebook.com/lakshit8/" class="fa fa-facebook"></a>
+        <a id="ftr" href="https://api.whatsapp.com/send?phone=917727913885&text=Hello%20Lakshit.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#" class="fa fa-whatsapp"></a>
+        <a id="ftr" href="https://instagram.com/lakshit_4" class="fa fa-instagram"></a>
+        <a id="ftr" href="https://twitter.com/lakshit_sharma_" class="fa fa-twitter"></a>
+      </p>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="wow fadeInUp footer-copyright">
+              <p>Made in India <br>
+                Copyright &copy; 2021 VULTURE </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+</body>
+
+</html>
