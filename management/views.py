@@ -606,7 +606,7 @@ def doctor_patient_view(request):
     mydict={
     'doctor':models.Doctor.objects.get(user_id=request.user.id), #for profile picture of doctor in sidebar
     }
-    return render(request,'hospital/doctor_patient.html',context=mydict)
+    return render(request,'doctorPatient.html',context=mydict)
 
 
 
@@ -617,7 +617,7 @@ def doctor_patient_view(request):
 def doctor_view_patient_view(request):
     patients=models.Patient.objects.all().filter(status=True,assignedDoctorId=request.user.id)
     doctor=models.Doctor.objects.get(user_id=request.user.id) #for profile picture of doctor in sidebar
-    return render(request,'hospital/doctor_view_patient.html',{'patients':patients,'doctor':doctor})
+    return render(request,'doctorViewPatient.html',{'patients':patients,'doctor':doctor})
 
 
 @login_required(login_url='doctorLogIn')
@@ -627,7 +627,7 @@ def search_view(request):
     # whatever user write in search box we get in query
     query = request.GET['query']
     patients=models.Patient.objects.all().filter(status=True,assignedDoctorId=request.user.id).filter(Q(symptoms__icontains=query)|Q(user__first_name__icontains=query))
-    return render(request,'hospital/doctor_view_patient.html',{'patients':patients,'doctor':doctor})
+    return render(request,'doctorViewPatient.html',{'patients':patients,'doctor':doctor})
 
 
 
@@ -636,7 +636,7 @@ def search_view(request):
 def doctor_view_discharge_patient_view(request):
     dischargedpatients=models.PatientDischargeDetails.objects.all().distinct().filter(assignedDoctorName=request.user.first_name)
     doctor=models.Doctor.objects.get(user_id=request.user.id) #for profile picture of doctor in sidebar
-    return render(request,'hospital/doctor_view_discharge_patient.html',{'dischargedpatients':dischargedpatients,'doctor':doctor})
+    return render(request,'doctorViewDischargePatient.html',{'dischargedpatients':dischargedpatients,'doctor':doctor})
 
 
 
@@ -644,7 +644,7 @@ def doctor_view_discharge_patient_view(request):
 @user_passes_test(isDoctor)
 def doctor_appointment_view(request):
     doctor=models.Doctor.objects.get(user_id=request.user.id) #for profile picture of doctor in sidebar
-    return render(request,'hospital/doctor_appointment.html',{'doctor':doctor})
+    return render(request,'doctorAppointment.html',{'doctor':doctor})
 
 
 
@@ -658,7 +658,7 @@ def doctor_view_appointment_view(request):
         patientid.append(a.patientId)
     patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid)
     appointments=zip(appointments,patients)
-    return render(request,'hospital/doctor_view_appointment.html',{'appointments':appointments,'doctor':doctor})
+    return render(request,'doctorViewAppointment.html',{'appointments':appointments,'doctor':doctor})
 
 
 
@@ -672,7 +672,7 @@ def doctor_delete_appointment_view(request):
         patientid.append(a.patientId)
     patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid)
     appointments=zip(appointments,patients)
-    return render(request,'hospital/doctor_delete_appointment.html',{'appointments':appointments,'doctor':doctor})
+    return render(request,'doctorDeleteAppointment.html',{'appointments':appointments,'doctor':doctor})
 
 
 
@@ -688,18 +688,13 @@ def delete_appointment_view(request,pk):
         patientid.append(a.patientId)
     patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid)
     appointments=zip(appointments,patients)
-    return render(request,'hospital/doctor_delete_appointment.html',{'appointments':appointments,'doctor':doctor})
+    return render(request,'doctorDeleteAppointment.html',{'appointments':appointments,'doctor':doctor})
 
 
 
 #---------------------------------------------------------------------------------
 #------------------------ DOCTOR RELATED VIEWS END ------------------------------
 #---------------------------------------------------------------------------------
-
-
-
-
-
 
 #---------------------------------------------------------------------------------
 #------------------------ PATIENT RELATED VIEWS START ------------------------------
@@ -752,15 +747,15 @@ def patient_book_appointment_view(request):
             appointment.patientName=request.user.first_name #----user can choose any patient but only their info will be stored
             appointment.status=False
             appointment.save()
-        return HttpResponseRedirect('patient-view-appointment')
-    return render(request,'hospital/patient_book_appointment.html',context=mydict)
+        return HttpResponseRedirect('patientViewAppointment')
+    return render(request,'patientBookAppointment.html',context=mydict)
 
 
 
 def patient_view_doctor_view(request):
     doctors=models.Doctor.objects.all().filter(status=True)
     patient=models.Patient.objects.get(user_id=request.user.id) #for profile picture of patient in sidebar
-    return render(request,'hospital/patient_view_doctor.html',{'patient':patient,'doctors':doctors})
+    return render(request,'patientViewDoctor.html',{'patient':patient,'doctors':doctors})
 
 
 
@@ -770,7 +765,7 @@ def search_doctor_view(request):
     # whatever user write in search box we get in query
     query = request.GET['query']
     doctors=models.Doctor.objects.all().filter(status=True).filter(Q(department__icontains=query)| Q(user__first_name__icontains=query))
-    return render(request,'hospital/patient_view_doctor.html',{'patient':patient,'doctors':doctors})
+    return render(request,'patientViewDoctor.html',{'patient':patient,'doctors':doctors})
 
 
 
@@ -780,7 +775,7 @@ def search_doctor_view(request):
 def patient_view_appointment_view(request):
     patient=models.Patient.objects.get(user_id=request.user.id) #for profile picture of patient in sidebar
     appointments=models.Appointment.objects.all().filter(patientId=request.user.id)
-    return render(request,'hospital/patient_view_appointment.html',{'appointments':appointments,'patient':patient})
+    return render(request,'patientViewAppointment.html',{'appointments':appointments,'patient':patient})
 
 
 
@@ -816,18 +811,11 @@ def patient_discharge_view(request):
             'patient':patient,
             'patientId':request.user.id,
         }
-    return render(request,'hospital/patient_discharge.html',context=patientDict)
+    return render(request,'patientDischarge.html',context=patientDict)
 
 
 #------------------------ PATIENT RELATED VIEWS END ------------------------------
 #---------------------------------------------------------------------------------
-
-
-
-
-
-
-
 
 #---------------------------------------------------------------------------------
 #------------------------ ADMIN RELATED VIEWS END ------------------------------
